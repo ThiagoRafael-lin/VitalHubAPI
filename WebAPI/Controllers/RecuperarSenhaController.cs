@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpPost("Rota de Recuperação de Senha")]
+        [HttpPost("RotaDeRecuperacaoDeSenha")]
 
         public async Task<IActionResult> ValidarSenha(string email, int recoveryCode)
         {
