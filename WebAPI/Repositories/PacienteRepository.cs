@@ -19,6 +19,10 @@ namespace WebAPI.Repositories
                 .Include(x => x.Endereco)
                 .FirstOrDefault(x => x.Id == Id)!;
 
+                Paciente Pacientes = ctx.Pacientes
+                    .Include(x => x.Endereco)
+                    .FirstOrDefault(x => x.Id == Id)!;
+
                 //if (paciente.Foto != null)
                 //    pacienteBuscado!.IdNavigation.Foto = paciente.Foto;
 
