@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
+using WebAPI.Contexts;
 using WebAPI.Domains;
 using WebAPI.Interfaces;
 using WebAPI.Repositories;
@@ -14,6 +16,10 @@ namespace WebAPI.Controllers
     [ApiController]
     public class MedicosController : ControllerBase
     {
+
+        VitalContext ctx = new VitalContext();
+
+
         private IMedicoRepository _medicoRepository;
         public MedicosController()
         {
@@ -45,7 +51,6 @@ namespace WebAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
 
         [HttpPost]
         public async Task <IActionResult> Post([FromForm] MedicoViewModel medicoModel)
@@ -85,6 +90,22 @@ namespace WebAPI.Controllers
             _medicoRepository.Cadastrar(user);
 
             return Ok();
+        }
+
+        [HttpPut("BuscarPorId")]
+        public Medico BuscarPorId(Guid Id)
+        {
+            try
+            {
+                return ctx.Medicos
+                .Include(x => x.IdNavigation)
+                .Include(x => x.Endereco)
+                .FirstOrDefault(x => x.Id == Id)!;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpGet("BuscarPorIdClinica")]
