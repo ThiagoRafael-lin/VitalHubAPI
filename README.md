@@ -22,3 +22,48 @@ VitalHubApi é um projeto desenvolvido para aprender os conceitos e práticas de
    ```bash
    git clone <URL_DO_REPOSITORIO>
    cd <DIRETORIO_DO_PROJETO>
+   
+## Exemplos de Endpoints 📡
+
+1. **Criar um novo registro**
+
+   - **Método**: `POST`
+   - **URL**: `/api/entidade`
+   - **Corpo**:
+     ```json
+     { 
+       "campo1": "valor1", 
+       "campo2": "valor2" 
+     }
+     ```
+
+2. **Consultar todos os registros**
+
+   - **Método**: `GET`
+   - **URL**: `/api/entidade`
+
+3. **Atualizar um registro**
+
+   - **Método**: `PUT`
+   - **URL**: `/api/entidade/{id}`
+   - **Corpo**:
+     ```json
+     { 
+       "campo1": "novoValor1", 
+       "campo2": "novoValor2" 
+     }
+     ```
+
+4. **Excluir um registro**
+
+   - **Método**: `DELETE`
+   - **URL**: `/api/entidade/{id}`
+
+## Contribuição 🌟
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+## Contato 📧
+
+Para dúvidas ou sugestões, entre em contato:
+- **E-mail**: thiagorafael2005@gmail.com
